@@ -1,0 +1,30 @@
+<%= provide(:button_text, 'Sign up') %>
+<!-- <form action="/users" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+    <input type="text" name="user[username]" id="username">
+    <input type="text" name="user[email]" id="email">
+    <input type="password" name="user[password]" id="password">    
+    <input type="submit" name="submit" id="submit">
+</form> -->
+
+<!-- <%= form_tag('/users', method: :post)%>
+    <%= text_field_tag '[user]username', '', placeholder: 'Username' %>
+    <%= text_field_tag '[user]email', '', placeholder: 'Email Address' %>
+    <%= text_field_tag '[user]password', '', placeholder: 'Password' %>
+    <%= submit_tag 'Sign up'%> -->
+<div class="form-container">
+    <%= form_for @user do |f| %>
+
+    <h1>Sign up</h1>
+        <div>
+            <%= f.text_field :username, placeholder: 'Username' %>
+        </div>
+
+        <div><%= f.email_field :email, placeholder: 'Email Address' %></div>
+        <div><%= f.password_field :password, placeholder: "Password" %></div>
+        <div class="actions">
+            <%= f.submit yield(:button_text)%>
+        </div>
+    <% end %>
+</div>
+
