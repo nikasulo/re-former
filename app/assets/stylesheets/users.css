@@ -24,6 +24,7 @@
       color: white;
       font-size: 1em; }
     .form-container form span, .form-container form .count {
-      color: salmon; }
+      color: salmon;
+      font-family: sans-serif; }
 
 /*# sourceMappingURL=users.css.map */
