@@ -1,0 +1,35 @@
+<%= form_for @user do |f| %>
+
+  <h1><%= yield(:form_title) %></h1> 
+
+  <div class="form-errors">
+    <% if @user.errors.any? %>
+      <p class="count"><%= pluralize(@user.errors.count, 'error') %> in your submission, check them out</p>
+    <% end %>
+  </div>
+  <div>
+    <%= f.text_field :username, placeholder: 'Username' %>
+    <% if @user.errors[:username].any? %>
+      <span>Username <%= @user.errors[:username].first  %></span>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.email_field :email, placeholder: 'Email Address' %>
+    <% if @user.errors[:email].any? %>
+      <span>Email <%= @user.errors[:email].first  %></span>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.password_field :password, placeholder: "Password" %>
+    <% if @user.errors[:password].any? %>
+      <span>Password <%= @user.errors[:password].first  %></span>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit yield(:button_text)%>
+  </div>
+
+<% end %>   
